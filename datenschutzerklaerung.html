@@ -291,16 +291,17 @@
     <h3 data-lang-block data-en>a) Automatically collected usage data</h3>
     <p data-lang-block data-de>
       Einmal täglich liest die App die <strong>zusammengefasste Bildschirmzeit des Vortags</strong> sowie die
-      <strong>Anzahl der Öffnungen</strong> der folgenden sieben Social-Media-Apps aus: YouTube, Instagram, X,
-      TikTok, Reddit, Snapchat, Facebook. Nur diese aggregierten Werte werden an den Server der TU Freiberg
+      <strong>Anzahl der Öffnungen und Nutzungsdauern</strong> der folgenden sieben Social-Media-Apps aus: YouTube, Instagram, X,
+      TikTok, Reddit, Snapchat, Facebook. Nur diese aggregierten Werte werden an den Server der TU Bergakademie Freiberg
       übermittelt. Nutzungsdaten anderer, nicht genannter Apps werden zu keinem Zeitpunkt erfasst, ausgelesen oder
-      übertragen.
+      übertragen. In dem Moment, wenn die Intervention geschlossen wird, übermittelt die App außerdem, auf welche Art dies geschah, den Zeitpunkt und die verbrachte Dauer in der Intervention.
     </p>
     <p data-lang-block data-en>
       Once a day, the app reads the <strong>aggregated screen time of the previous day</strong> and the
-      <strong>number of times</strong> the following seven social media apps were opened: YouTube, Instagram, X,
-      TikTok, Reddit, Snapchat, Facebook. Only these aggregated figures are transmitted to the TU Freiberg server.
-      Usage data of any other, unnamed app is never collected, read, or transmitted.
+      <strong>number of openings and usage durations</strong> of the following seven social media apps: YouTube, Instagram, X,
+      TikTok, Reddit, Snapchat, Facebook. Only these aggregated figures are transmitted to the TU Bergakademie Freiberg server.
+      Usage data of any other, unnamed app is never collected, read, or transmitted. 
+      The moment the intervention is closed, the app further reports how it was closed, the time, and the duration of the intervention.
     </p>
 
     <h3 data-lang-block data-de>b) Erkennung der Vordergrund-App (Bedienungshilfe-Dienst)</h3>
@@ -309,15 +310,15 @@
       Um zu erkennen, wann eine der sieben genannten Social-Media-Apps geöffnet wird und die passende Intervention
       einzublenden, wertet die App technische Systemereignisse aus (<code>AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED</code>),
       um Paketname und Klassenname der gerade im Vordergrund laufenden App zu bestimmen. Dabei werden
-      <strong>keine Bildschirminhalte, Texte, Tastatureingaben oder sonstigen UI-Inhalte</strong> ausgelesen,
-      angezeigt oder gespeichert — es wird ausschließlich technisch erkannt, welche App aktiv ist.
+      <strong>keine Bildschirminhalte, Texte, Tastatureingaben oder sonstige UI-Inhalte</strong> ausgelesen,
+      angezeigt oder gespeichert — es wird ausschließlich technisch erkannt, welche App aktiv ist. 
     </p>
     <p data-lang-block data-en>
       To detect when one of the seven named social media apps is opened and display the corresponding
       intervention, the app evaluates system-level events (<code>AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED</code>)
       to determine the package name and class name of the app currently in the foreground. No
       <strong>screen content, text, keystrokes, or other UI content</strong> is read, displayed, or stored — the
-      app only technically detects which app is currently active.
+      app only technically detects which app is currently active. 
     </p>
   </section>
 
