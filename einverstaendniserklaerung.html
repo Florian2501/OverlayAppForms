@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Einverständniserklärung / Consent Form — TUBAF Overlay-Studie</title>
+<style>
+  :root{
+    --bg: #EEF0EE;
+    --surface: #FFFFFF;
+    --ink: #1B2429;
+    --ink-soft: #55636A;
+    --border: #D7DBD8;
+    --accent: #1B5E63;
+    --accent-soft: #E4EEEC;
+    --gold: #A6742C;
+    --gold-soft: #F3EADA;
+    --serif: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', serif;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans);
+    line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--gold); outline-offset:2px;}
+
+  .topbar{
+    position:sticky; top:0; z-index:10; background:rgba(238,240,238,0.92);
+    backdrop-filter:blur(6px); border-bottom:1px solid var(--border);
+  }
+  .topbar-inner{
+    max-width:760px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .brand{font-family:var(--serif); font-size:0.95rem; letter-spacing:0.02em; color:var(--ink-soft);}
+  .nav-links{display:flex; gap:18px; align-items:center; font-size:0.92rem;}
+  .nav-links a{text-decoration:none; border-bottom:1px solid transparent;}
+  .nav-links a:hover{border-bottom-color:var(--accent);}
+  .lang-toggle{display:flex; border:1px solid var(--accent); border-radius:999px; overflow:hidden;}
+  .lang-toggle button{
+    border:none; background:transparent; color:var(--accent); padding:5px 14px;
+    font-size:0.85rem; font-weight:600; cursor:pointer; font-family:var(--sans);
+  }
+  .lang-toggle button.active{background:var(--accent); color:#fff;}
+
+  .strata{height:6px; display:flex; margin:40px 0;}
+  .strata span{flex:1; height:100%;}
+  .strata span:nth-child(1){background:var(--accent);}
+  .strata span:nth-child(2){background:var(--gold);}
+  .strata span:nth-child(3){background:var(--ink-soft); opacity:0.35;}
+  .strata span:nth-child(4){background:var(--accent); opacity:0.5;}
+
+  main{max-width:760px; margin:0 auto; padding:8px 24px 80px;}
+  .doc-header{padding:36px 0 8px;}
+  .eyebrow{
+    font-size:0.78rem; text-transform:uppercase; letter-spacing:0.12em;
+    color:var(--accent); font-weight:700; margin:0 0 10px;
+  }
+  h1{font-family:var(--serif); font-size:2rem; line-height:1.25; margin:0 0 14px; font-weight:600;}
+  .lede{color:var(--ink-soft); font-size:1.02rem; max-width:62ch;}
+
+  .callout{
+    background:var(--surface); border:1px solid var(--border); border-left:4px solid var(--accent);
+    border-radius:6px; padding:18px 20px; margin:24px 0; font-size:0.95rem;
+  }
+  .callout ul{margin:8px 0 0; padding-left:1.2em;}
+  .callout li{margin-bottom:6px;}
+
+  section.clause{padding:30px 0;}
+  section.clause h2{
+    font-family:var(--serif); font-size:1.35rem; margin:0 0 14px; display:flex; gap:12px; align-items:baseline;
+  }
+  section.clause h2 .num{color:var(--gold); font-variant-numeric:tabular-nums;}
+  section.clause h3{font-size:1.02rem; margin:20px 0 8px;}
+  section.clause p{margin:0 0 14px;}
+  section.clause ul, section.clause ol.steps{margin:0 0 14px; padding-left:1.3em;}
+  section.clause li{margin-bottom:10px;}
+  ol.steps > li::marker{color:var(--gold); font-weight:700;}
+
+  .permlist{
+    background:var(--accent-soft); border:1px solid var(--border); border-radius:8px;
+    padding:14px 18px; margin:14px 0 20px; font-size:0.92rem;
+  }
+  .permlist p{margin:0 0 8px; font-weight:600;}
+  .permlist ul{margin:0; padding-left:1.2em;}
+  .permlist li{margin-bottom:6px;}
+
+  .contact-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:16px 20px; margin:10px 0; font-size:0.94rem;
+  }
+  .contact-card strong{display:block; margin-bottom:2px;}
+  .contact-card .role{color:var(--ink-soft); font-size:0.85rem; margin-bottom:6px;}
+
+  .consent-panel{
+    background:var(--gold-soft); border:2px solid var(--gold); border-radius:12px;
+    padding:26px 26px; margin:36px 0 10px;
+  }
+  .consent-panel .eyebrow{color:#7A5620;}
+  .consent-panel h2{color:#3d2c11;}
+  .consent-item{
+    display:flex; gap:14px; align-items:flex-start; background:var(--surface);
+    border:1px solid #E3CFA0; border-radius:8px; padding:14px 16px; margin-bottom:14px;
+  }
+  .consent-item .marker{
+    flex:0 0 auto; width:26px; height:26px; border-radius:50%; background:var(--gold); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:0.85rem; font-weight:700;
+  }
+  .consent-note{
+    font-size:0.9rem; color:#5a4520; background:transparent; border-top:1px dashed #C7A25C;
+    padding-top:14px; margin-top:6px;
+  }
+
+  footer{
+    max-width:760px; margin:0 auto; padding:20px 24px 60px; color:var(--ink-soft); font-size:0.85rem;
+    border-top:1px solid var(--border); margin-top:20px;
+  }
+
+  [data-lang-block]{display:none;}
+  [data-lang-block].active{display:block;}
+  [data-lang-inline]{display:none;}
+  [data-lang-inline].active{display:inline;}
+  [data-lang-flex]{display:none;}
+  [data-lang-flex].active{display:flex;}
+
+  @media (max-width:600px){ h1{font-size:1.6rem;} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">TUBAF Overlay-Studie</span>
+    <div class="nav-links">
+      <a href="datenschutzerklaerung.html" data-lang-inline data-de class="active">Datenschutzerklärung</a>
+      <a href="datenschutzerklaerung.html" data-lang-inline data-en>Privacy Policy</a>
+      <div class="lang-toggle">
+        <button type="button" data-set-lang="de" class="active">DE</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <div class="doc-header">
+    <p class="eyebrow" data-lang-block data-de>Nutzerstudie</p>
+    <p class="eyebrow" data-lang-block data-en>User Study</p>
+
+    <h1 data-lang-block data-de>Einverständniserklärung zur Studienteilnahme</h1>
+    <h1 data-lang-block data-en>Consent Form for Study Participation</h1>
+
+    <p class="lede" data-lang-block data-de>
+      Sie sind eingeladen, an der Nutzerstudie „Textuelle und Grafische Warnhinweise für Social Media: Auswirkungen
+      auf das Nutzungsverhalten und das Digitale Wohlbefinden" teilzunehmen. Die Studie wird von Florian Eberhard
+      Schierz durchgeführt und von Prof. Dr. Bastian Pfleging am Institut für Informatik der TU Bergakademie
+      Freiberg geleitet.
+    </p>
+    <p class="lede" data-lang-block data-en>
+      You are invited to take part in the user study "Textual and Graphic Warning Labels on Social Media: Effects on Usage Behavior and Digital Well-Being". The study is conducted by Florian Eberhard Schierz and supervised by Prof. Dr. Bastian Pfleging at the Institute of Computer Science, TU Bergakademie Freiberg.
+    </p>
+  </div>
+
+  <div class="callout" data-lang-block data-de>
+    <strong>Das Wichtigste in Kürze:</strong>
+    <ul>
+      <li>Die Teilnahme ist vollkommen freiwillig und kann jederzeit abgebrochen oder widerrufen werden.</li>
+      <li>Die Studie dauert 5 Wochen (35 Tage).</li>
+      <li>Bei vollständiger Teilnahme erhalten Sie die Chance auf einen 50&nbsp;€-Gutschein — pro 10
+        Teilnehmenden wird ein weiterer Gutschein verlost, Ihre Gewinnchance sinkt also nicht mit mehr
+        Teilnehmenden.</li>
+      <li>Sie nutzen dafür unsere eigens entwickelte App und werden gebeten, Ihr Smartphone während der
+        Studiendauer authentisch zu benutzen.</li>
+      <li>Bei Registrierung und in den Befragungen angegebene Daten: Name, Alter, Geschlecht, E-Mail-Adresse, höchster Bildungsabschluss, Beruf, Angaben zur Social-Media-Nutzung,
+        Persönlichkeitseigenschaften, Erfahrungen mit den Interventionen, Angaben zum digitalen Wohlbefinden sowie die
+        Android-Version Ihres Geräts.</li>
+      <li>Wie und welche Daten die App automatisch erhebt, erfahren Sie ausführlich in unserer
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>.</li>
+    </ul>
+  </div>
+  <div class="callout" data-lang-block data-en>
+    <strong>Key points at a glance:</strong>
+    <ul>
+      <li>Participation is entirely voluntary and can be paused or withdrawn at any time.</li>
+      <li>The study runs for 5 weeks (35 days).</li>
+      <li>Completing the study in full gives you a chance to win a €50 voucher — for every 10 participants, one
+        additional voucher is raffled, so your odds don't decrease as more people join.</li>
+      <li>You'll use our purpose-built app and are asked to use your smartphone authentically during the study.</li>
+      <li>Data provided during registration and in the surveys: Name, age, gender, email address, highest level of education, occupation, information about your social
+        media use, personality traits, experiences with the interventions, information about your digital wellbeing,
+        and your device's Android version.</li>
+      <li>Full details on exactly what data the app automatically collects and how are in our
+        <a href="datenschutzerklaerung.html">Privacy Policy</a>.</li>
+    </ul>
+  </div>
+
+  <div class="strata"><span></span><span></span><span></span><span></span></div>
+
+  <!-- 1 -->
+  <section class="clause" id="zweck">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">1.</span> Zweck und Ziel dieser Forschung</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">1.</span> Purpose and Aim of this Research</h2>
+    </div>
+
+    <p data-lang-block data-de>
+      Der Zweck der Studie ist es, Interventionsmöglichkeiten zu testen, um Social-Media-Konsum zu reduzieren, die
+      Awareness für Risiken der Social-Media-Nutzung zu erhöhen und dadurch das allgemeine digitale Wohlbefinden zu
+      verbessern. Dafür haben wir verschiedene Interventionsmethoden entwickelt, die bei der Nutzung von
+      Social-Media-Apps aktiviert werden, um Nutzer:innen zu einer reflektierteren und effizienteren Nutzung zu
+      verhelfen. Diese Interventionen können Warnungen vor den Risiken der Social-Media-Nutzung enthalten,
+      möglicherweise grafisch unterstützt durch Symbolbilder. Wir wollen herausfinden, ob unser
+      Interventionskonzept effektiv ist und solche aufklärenden Warnungen helfen können, Ihren Social-Media-Konsum
+      zu senken. Ihre Teilnahme hilft uns, dieses Forschungsziel zu erreichen. Die Ergebnisse können auf
+      wissenschaftlichen Tagungen präsentiert oder in Fachpublikationen veröffentlicht werden.
+    </p>
+    <p data-lang-block data-en>
+      The purpose of the study is to test possible interventions to reduce social media consumption, raise
+      awareness of the risks of social media use, and thereby improve general digital wellbeing. To this end, we
+      have developed several intervention methods that activate while social media apps are in use, helping
+      users engage more reflectively and efficiently. These interventions may include warnings about the risks of
+      social media use, potentially supported graphically with illustrative imagery. We want to find out whether
+      our proposed intervention concept is effective and whether such warnings can help lower your social media
+      consumption. Your participation helps us reach this research goal. Results may be presented at academic
+      conferences or published in scientific journals.
+    </p>
+  </section>
+
+  <!-- 2 -->
+  <section class="clause" id="teilnahme">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">2.</span> Studienteilnahme</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">2.</span> Study Participation</h2>
+    </div>
+
+    <p data-lang-block data-de>
+      Ihre Teilnahme ist vollkommen freiwillig und kann jederzeit abgebrochen oder widerrufen werden. Sie können
+      die Beantwortung von Fragen oder die weitere Durchführung der Studie jederzeit verweigern, wenn Sie sich in
+      irgendeiner Weise unwohl fühlen, und die Teilnahme ohne Angabe von Gründen widerrufen oder beenden. Wir
+      behalten uns allerdings vor, Sie von der Studie auszuschließen.
+    </p>
+    <p data-lang-block data-de>
+      Sie erhalten die angebotene Vergütung nur bei <strong>vollständiger</strong> Studienteilnahme. Vollständig
+      bedeutet, dass Sie komplett an den in Abschnitt 3 aufgeführten Punkten 1 bis 3 teilnehmen. Eine wiederholte
+      Teilnahme an der Studie ist nicht gestattet.
+    </p>
+    <p data-lang-block data-de>
+      Leider können immer technische Probleme auftreten, wodurch die App nicht ordnungsgemäß funktioniert und 
+      nicht alle Daten übertragen werden, die wir für unsere Auswertung benötigen. Sollte dies Ausmaße annehmen, 
+      die eine Auswertung unmöglich machen, behalten wir uns auch hier vor, Sie von der Studie auszuschließen, 
+      wodurch Ihre Teilnahme nicht als vollständig gilt. Wir benachrichtigen Sie, wenn möglich, darüber so 
+      schnell es geht, um das technische Problem entweder zu beheben oder falls nicht möglich, Ihnen mitzuteilen, 
+      dass Sie die Studie abbrechen können, um nicht weiter Aufwand durch die Teilnahme zu haben.
+    </p>
+    <p data-lang-block data-en>
+      Your participation is entirely voluntary and can be paused or withdrawn at any time. You may refuse to
+      answer questions or to continue the study whenever you feel uncomfortable, and you may withdraw or end your
+      participation without giving reasons. We do, however, reserve the right to exclude you from the study.
+    </p>
+    <p data-lang-block data-en>
+      You will only receive the offered compensation for <strong>complete</strong> participation, meaning full
+      completion of steps 1 through 3 listed in Section 3. Repeated participation in the study is not permitted.
+    </p>
+    <p data-lang-block data-en>
+      Unfortunately, technical issues can always arise, causing the app to malfunction and 
+      preventing the transmission of all the data we need for our analysis. Should this become so severe 
+      that analysis becomes impossible, we reserve the right to exclude you from the study, 
+      in which case your participation will not be considered complete. If possible, we will notify you of this 
+      as soon as possible so that we can either resolve the technical issue or, if that is not possible, inform you 
+      that you may withdraw from the study to avoid any further inconvenience resulting from your participation.
+    </p>
+  </section>
+
+  <!-- 3 -->
+  <section class="clause" id="ablauf">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">3.</span> Studienablauf</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">3.</span> Study Procedure</h2>
+    </div>
+
+    <p data-lang-block data-de>Es ist folgender Studienablauf vorgesehen:</p>
+    <p data-lang-block data-en>The following course of study is planned:</p>
+
+    <ol class="steps" data-lang-block data-de>
+      <li>Nach Abschluss der Registrierungsumfrage erhalten Sie von uns einen Link an Ihre angegebene E-Mail-Adresse, über den Sie unsere App
+        herunterladen können. In der Mail finden Sie genauere Erklärungen zu Ablauf und Einrichtung.</li>
+      <li>Sobald Sie die App eingerichtet haben, startet automatisch die 5-wöchige Studiendauer.</li>
+      <li>
+        Die 5 Wochen gliedern sich wie folgt: In der <strong>ersten Woche</strong> sind die Interventionen noch
+        inaktiv — die App zeichnet nur Ihr Nutzungsverhalten als Vergleichswert auf. Danach werden Sie per
+        Benachrichtigung gebeten, eine kurze Umfrage zur ersten Woche auszufüllen. In den folgenden
+        <strong>3 Wochen</strong> sind die Interventionen aktiv: Öffnen Sie eine der Social-Media-Apps (YouTube,
+        Instagram, X, TikTok, Reddit, Snapchat, Facebook), erscheint zunächst ein Bildschirm unserer App mit zwei
+        Buttons — einer zum Schließen, einer zum Fortfahren. Der Fortfahren-Button ist erst nach 5 Sekunden
+        klickbar. Danach können Sie die Social-Media-App 10 Minuten unverändert nutzen; sind Sie danach noch
+        aktiv, erscheint die Intervention erneut. Ihrer Nutzung sind keine Limits gesetzt, Sie werden jedoch alle
+        10 Minuten zur Reflexion unterbrochen. Je nach zufällig zugeteilter Studiengruppe ist die Intervention ein
+        leerer Bildschirm, enthält textuelle Warnungen oder zusätzlich grafische Symbolbilder zu ernsten Themen
+        (physische und psychische Gesundheitsschäden). Auch hier werden Ihre Nutzungsdaten aufgezeichnet, und am
+        Ende jeder Woche folgt wieder eine kurze Umfrage. In der <strong>fünften Woche</strong> werden die
+        Interventionen wieder deaktiviert, Ihre Nutzungsdaten aber weiter aufgezeichnet, um Verhaltensänderungen
+        nach den Interventionen zu untersuchen — abschließend folgt eine letzte Umfrage. Ab hier gilt Ihre
+        Teilnahme als vollständig.
+      </li>
+      <li>Im Anschluss werden Sie gebeten, einen Termin für ein optionales Interview zu Ihren Erfahrungen zu
+        vereinbaren. Dies zählt nicht zur vollständigen Teilnahme, ist aber für unsere Forschung sehr wertvoll.</li>
+      <li>Unabhängig vom Interview werden Sie in den Tagen nach Studienende über einen möglichen Gewinn
+        informiert, sofern Ihre Teilnahme vollständig war.</li>
+    </ol>
+
+    <ol class="steps" data-lang-block data-en>
+      <li>After submitting the registration survey we will send a link to your provided email address, through which you can download our app. The email
+        contains detailed instructions on the procedure and setup.</li>
+      <li>Once you have set up the app, the 5-week study period starts automatically.</li>
+      <li>
+        The 5 weeks are structured as follows: during the <strong>first week</strong>, interventions are still
+        inactive — the app only records your usage behaviour as a baseline. Afterwards, a notification will ask
+        you to complete a short survey about that first week. During the following <strong>3 weeks</strong>,
+        interventions are active: whenever you open one of the social media apps (YouTube, Instagram, X, TikTok,
+        Reddit, Snapchat, Facebook), a screen from our app appears first, with two buttons — one to close, one to
+        continue. The continue button only becomes clickable after 5 seconds. You can then use the social media
+        app unchanged for 10 minutes; if you're still active afterwards, the intervention reappears. There is no
+        hard limit on your usage, but you'll be interrupted for reflection every 10 minutes. Depending on your
+        randomly assigned study group, the intervention is either a blank screen, contains textual warnings, or
+        additionally includes graphical illustrative imagery on serious topics (physical and mental health harms).
+        Your usage data continues to be recorded during this phase, and a short survey follows at the end of each
+        week. In the <strong>fifth week</strong>, interventions are deactivated again, but usage data continues to
+        be recorded to examine behavioural changes after the interventions — a final survey follows. From this
+        point, your participation counts as complete.
+      </li>
+      <li>Afterwards, you will be asked to schedule an optional interview about your experience during the 5
+        weeks. This is not required for complete participation but would be very valuable for our research.</li>
+      <li>Regardless of whether you scheduled an interview, you will be informed in the days after the study ends
+        whether you won a voucher, provided your participation was complete.</li>
+    </ol>
+
+    <div class="permlist" data-lang-block data-de>
+      <p>Technischer Hinweis: Dafür fordert die App folgende Berechtigungen an</p>
+      <ul>
+        <li><strong>Bedienungshilfe-Dienst</strong> — erkennt, wann eine der sieben Social-Media-Apps geöffnet wird</li>
+        <li><strong>Anzeige über anderen Apps</strong> — blendet den Interventions-Bildschirm ein</li>
+        <li><strong>Benachrichtigungen</strong> — erinnert an die wöchentlichen Umfragen</li>
+        <li><strong>Ausnahme von der Akku-Optimierung</strong> — hält die App über die 35 Tage zuverlässig aktiv</li>
+        <li><strong>Nutzungszugriff (Usage Access)</strong> — liest einmal täglich die aggregierte Bildschirmzeit
+          und App-Öffnungen der genannten sieben Apps aus</li>
+      </ul>
+      <p style="font-weight:400; margin-top:10px;">
+        Ausführliche Erklärungen zu jeder Berechtigung finden Sie in der
+        <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>.
+      </p>
+    </div>
+    <div class="permlist" data-lang-block data-en>
+      <p>Technical note: to do this, the app requests the following permissions</p>
+      <ul>
+        <li><strong>Accessibility service</strong> — detects when one of the seven social media apps is opened</li>
+        <li><strong>Display over other apps</strong> — shows the intervention screen</li>
+        <li><strong>Notifications</strong> — reminds you about the weekly surveys</li>
+        <li><strong>Battery-optimization exemption</strong> — keeps the app reliably running throughout the 35 days</li>
+        <li><strong>Usage access</strong> — once daily reads the aggregated screen time and open counts for the
+          seven named apps</li>
+      </ul>
+      <p style="font-weight:400; margin-top:10px;">
+        Detailed explanations of each permission are available in the
+        <a href="datenschutzerklaerung.html">Privacy Policy</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="clause" id="risiken">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">4.</span> Risiken und Nutzen</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">4.</span> Risks and Benefits</h2>
+    </div>
+
+    <p data-lang-block data-de>
+      In der Nutzerstudie sind Sie keinen unmittelbaren Risiken oder Gefahren ausgesetzt. Unannehmlichkeiten oder
+      Unwohlsein sind unwahrscheinlich; sollten Beschwerden dennoch zum Problem werden, beenden Sie Ihre
+      Teilnahme bitte sofort und kontaktieren Sie die Studienleitung. Wie bei allen Computersystemen besteht trotz
+      Sicherheitsmaßnahmen ein geringes Restrisiko eines Datenlecks. Als Nutzen unterstützen Sie unsere
+      Forschungsarbeit und tragen zu einem besseren Verständnis der Mensch-Maschine-Interaktion bei — zusätzlich
+      haben Sie bei vollständiger Teilnahme die Chance auf einen 50&nbsp;€-Gutschein.
+    </p>
+    <p data-lang-block data-en>
+      You are not exposed to any immediate risks or dangers in this user study. Discomfort or unease is unlikely;
+      should any complaints become a problem for you, please end your participation immediately and contact the
+      study lead. As with any computer system, a small residual risk of a data breach remains despite security
+      measures. As a benefit, your participation supports our research and contributes to a better understanding
+      of human-computer interaction — and if your participation is complete, you also get a chance to win a €50
+      voucher.
+    </p>
+  </section>
+
+  <!-- 5 -->
+  <section class="clause" id="datenschutz">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">5.</span> Datenschutz und Vertraulichkeit</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">5.</span> Data Protection and Confidentiality</h2>
+    </div>
+
+    <p data-lang-block data-de>
+      Für diese Studie erheben wir persönliche und personenbezogene Daten. Deren Verwendung unterliegt der
+      Datenschutz-Grundverordnung (DSGVO) der EU. Sie können die erhobenen Daten einsehen, berichtigen, in der
+      Verarbeitung einschränken und löschen lassen. Ihre Daten werden nicht länger aufbewahrt als nötig oder bis
+      Sie uns um Löschung bitten. Der Zugriff auf Aufzeichnungen und Umfrageergebnisse erfolgt verschlüsselt,
+      passwortgeschützt und ist auf die an dieser Forschung beteiligten Autor:innen, Kolleg:innen und Forschenden
+      beschränkt — andere Mitglieder oder Administrator:innen der Universität haben keinen Zugriff. Die Daten
+      werden über codierte Kennziffern pseudonymisiert und ausschließlich in aggregierter Form veröffentlicht,
+      sodass ohne die Zusatzinformationen der Forschenden kein Rückschluss auf einzelne Personen möglich ist.
+      Auch Interviewinhalte oder direkte Zitate werden entsprechend anonymisiert. Vollständige Details zur
+      technischen Datenverarbeitung durch die App finden Sie in unserer
+      <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>.
+    </p>
+    <p data-lang-block data-en>
+      For this study, we collect personal data. Its use is subject to the EU General Data Protection Regulation
+      (GDPR). You can access, correct, restrict the processing of, and request deletion of the data collected
+      about you. Your data is not kept longer than necessary, or until you ask us to delete it. Access to
+      recordings and survey results is encrypted, password-protected, and limited to the authors, colleagues, and
+      researchers involved in this project — other university staff or administrators have no access. Data is
+      pseudonymised via coded identifiers and published only in aggregated form, so that no conclusions about
+      individual persons are possible without the researchers' additional information. Interview content or
+      direct quotes are anonymised in the same way. Full details on how the app technically processes data are
+      available in our <a href="datenschutzerklaerung.html">Privacy Policy</a>.
+    </p>
+  </section>
+
+  <!-- 6 -->
+  <section class="clause" id="kontakt">
+    <div data-lang-block data-de>
+      <h2 data-lang-block data-de><span class="num">6.</span> Nennung der Untersuchenden</h2>
+    </div>
+    <div data-lang-block data-en>
+      <h2 data-lang-block data-en><span class="num">6.</span> Investigator Contact Details</h2>
+    </div>
+
+    <p data-lang-block data-de>Bei Fragen oder Bedenken zur Forschung wenden Sie sich bitte an:</p>
+    <p data-lang-block data-en>If you have questions or concerns about the research, please contact:</p>
+
+    <div class="contact-card">
+      <div class="role" data-lang-block data-de>Versuchsdurchführung</div>
+      <div class="role" data-lang-block data-en>Study conducted by</div>
+      <strong>Florian Eberhard Schierz</strong>
+      TU Bergakademie Freiberg<br>
+      E-Mail: Florian-Eberhard.Schierz [at] student.tu-freiberg [dot] de
+    </div>
+    <div class="contact-card">
+      <div class="role" data-lang-block data-de>Versuchsleitung</div>
+      <div class="role" data-lang-block data-en>Principal investigator</div>
+      <strong>Prof. Dr. Bastian Pfleging</strong>
+      TU Bergakademie Freiberg<br>
+      E-Mail: Bastian.Pfleging [at] informatik.tu-freiberg [dot] de
+    </div>
+
+    <p data-lang-block data-de>
+      Die Alternative zur Studienteilnahme ist die Nichtteilnahme. Bei Fragen, Bedenken oder Beschwerden zu dieser
+      Einwilligungserklärung oder zu Ihren Rechten als Versuchsperson können Sie sich auch an die Ethikkommission
+      der Fakultät für Wirtschaftswissenschaften wenden.
+    </p>
+    <p data-lang-block data-en>
+      The alternative to study participation is non-participation. If you have questions, concerns, or complaints
+      about this consent form or your rights as a research participant, you may also contact the Ethics Committee
+      of the Faculty of Business, Economics and Business Administration.
+    </p>
+  </section>
+
+  <div class="strata"><span></span><span></span><span></span><span></span></div>
+
+  <!-- CONSENT PANEL -->
+  <section class="consent-panel" id="einwilligung">
+    <p class="eyebrow" data-lang-block data-de>Abschnitt 7</p>
+    <p class="eyebrow" data-lang-block data-en>Section 7</p>
+    <h2 data-lang-block data-de style="margin-top:0;">Einverständniserklärung und Einwilligung</h2>
+    <h2 data-lang-block data-en style="margin-top:0;">Consent Statement</h2>
+
+    <p data-lang-block data-de>
+      Den beiden folgenden Punkten stimmen Sie <strong>nicht auf dieser Webseite</strong>, sondern
+      aktiv per Häkchen <strong>in der Registrierungsumfrage bzw. App</strong> zu, bevor Sie an der Studie teilnehmen:
+    </p>
+    <p data-lang-block data-en>
+      You do <strong>not</strong> confirm the following two points on this website — you actively agree to them by
+      checking the corresponding boxes <strong>inside the registration survey or respectively the app</strong> before taking part in the study:
+    </p>
+
+    <div class="consent-item">
+      <span class="marker">1</span>
+      <div>
+        <p data-lang-block data-de style="margin:0;">
+          Ich verstehe die Erklärung, die mir über diese Nutzerstudie gemacht wurde, und erkläre mich freiwillig
+          bereit, an dieser Nutzerstudie teilzunehmen. Ich habe alle meine Fragen zu meiner Zufriedenheit
+          beantwortet bekommen und bin mir über Risiken und Nutzen bewusst. Mir ist bekannt, dass diese
+          Einwilligung jederzeit widerrufen werden kann. Ich kann auf Anfrage eine Kopie dieser
+          Einverständniserklärung erhalten.
+        </p>
+        <p data-lang-block data-en style="margin:0;">
+          I understand the explanation that has been given to me about this user study and voluntarily agree to
+          participate. All of my questions have been answered to my satisfaction, and I am aware of the risks and
+          benefits. I understand that this consent can be withdrawn at any time. I can request a copy of this
+          consent form.
+        </p>
+      </div>
+    </div>
+
+    <div class="consent-item">
+      <span class="marker">2</span>
+      <div>
+        <p data-lang-block data-de style="margin:0;">
+          Ich willige ein, dass die Forschenden während der Studie die oben genannten Daten erheben. Ich
+          verstehe, dass alle Daten vertraulich und in Übereinstimmung mit der DSGVO behandelt werden. Mir ist
+          bekannt, dass das Material über Kennziffern pseudoanonymisiert wird und nicht direkt mit meiner
+          Identität in Verbindung gebracht werden kann. Ich verstehe, dass vollständige Anonymität nicht
+          garantiert werden kann und eine Verletzung der Vertraulichkeit theoretisch immer möglich ist. Aus der
+          Zustimmung zur Veröffentlichung kann ich keine Rechte (z.&nbsp;B. ausdrückliche Namensnennung,
+          finanzielle Vorteile oder Mitautorenschaft) ableiten.
+        </p>
+        <p data-lang-block data-en style="margin:0;">
+          I consent to the researchers collecting the data described above during the study. I understand that
+          all data is treated confidentially and in accordance with the GDPR. I understand that the material is
+          pseudonymised via coded identifiers and cannot be directly linked to my identity. I understand that
+          complete anonymity cannot be guaranteed and that a breach of confidentiality is theoretically always
+          possible. I understand that consenting to publication does not entitle me to any rights (such as
+          explicit attribution, financial benefits, or co-authorship).
+        </p>
+      </div>
+    </div>
+
+    <p class="consent-note" data-lang-block data-de>
+      Eine ausführliche, technische Beschreibung, welche Daten die App konkret erhebt und welche Berechtigungen
+      sie dafür nutzt, finden Sie in unserer <a href="datenschutzerklaerung.html">Datenschutzerklärung</a>.
+    </p>
+    <p class="consent-note" data-lang-block data-en>
+      A detailed, technical description of exactly what data the app collects and which permissions it uses for
+      this is available in our <a href="datenschutzerklaerung.html">Privacy Policy</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div data-lang-block data-de>
+    Diese Seite ist eine Web-Fassung der Einverständniserklärung zur Studienteilnahme und ersetzt nicht die
+    <a href="datenschutzerklaerung.html">Datenschutzerklärung</a> der App, die die technische Datenverarbeitung
+    im Detail beschreibt.
+  </div>
+  <div data-lang-block data-en>
+    This page is a web version of the study's consent form and does not replace the app's
+    <a href="datenschutzerklaerung.html">Privacy Policy</a>, which describes the technical data processing in
+    detail.
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.querySelectorAll('[data-lang-block]').forEach(function(el){
+      el.classList.toggle('active', el.hasAttribute('data-' + lang));
+    });
+    document.querySelectorAll('[data-lang-inline]').forEach(function(el){
+      el.classList.toggle('active', el.hasAttribute('data-' + lang));
+    });
+    document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+      btn.classList.toggle('active', btn.getAttribute('data-set-lang') === lang);
+    });
+    document.documentElement.setAttribute('lang', lang);
+  }
+  document.querySelectorAll('[data-set-lang]').forEach(function(btn){
+    btn.addEventListener('click', function(){ setLang(btn.getAttribute('data-set-lang')); });
+  });
+  setLang('de');
+</script>
+
+</body>
+</html>
