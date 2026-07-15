@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hersteller-Tipps / Manufacturer Tips — TUBAF Overlay-Studie</title>
+<style>
+  :root {
+    --uni-blue: #0b2e59;
+    --uni-blue-light: #1a5276;
+    --bg: #f4f6f8;
+    --card-bg: #ffffff;
+    --border: #e0e4e8;
+    --text: #222222;
+    --text-muted: #5a6472;
+    --warn-bg: #fff8e6;
+    --warn-border: #d9a400;
+    --warn-text: #5c4a00;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  header {
+    background: var(--uni-blue);
+    color: #ffffff;
+    padding: 20px 24px;
+  }
+  header .inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  header h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  header nav a {
+    color: #c9d6e5;
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 16px;
+  }
+  header nav a:hover { color: #ffffff; text-decoration: underline; }
+  .lang-toggle button {
+    background: transparent;
+    border: 1px solid #c9d6e5;
+    color: #c9d6e5;
+    padding: 4px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .lang-toggle button.active {
+    background: #ffffff;
+    color: var(--uni-blue);
+    border-color: #ffffff;
+    font-weight: bold;
+  }
+  main {
+    max-width: 860px;
+    margin: 32px auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 40px;
+  }
+  h2 {
+    color: var(--uni-blue);
+    font-size: 19px;
+    border-bottom: 2px solid var(--uni-blue);
+    padding-bottom: 6px;
+    margin-top: 36px;
+  }
+  h3 {
+    color: var(--uni-blue-light);
+    font-size: 16px;
+    margin-top: 24px;
+  }
+  .intro {
+    font-size: 15px;
+    color: var(--text-muted);
+  }
+  .box-warn {
+    background: var(--warn-bg);
+    border-left: 4px solid var(--warn-border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: var(--warn-text);
+    font-size: 14.5px;
+  }
+  .box-info {
+    background: #eaf1fb;
+    border-left: 4px solid var(--uni-blue);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14.5px;
+  }
+  ul { padding-left: 22px; }
+  li { margin-bottom: 6px; font-size: 15px; }
+  a { color: var(--uni-blue); }
+  code {
+    background: #eef1f4;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13.5px;
+  }
+  footer {
+    max-width: 860px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .credit-box {
+    background: #f4f6f8;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+    margin-top: 20px;
+    font-size: 14.5px;
+  }
+  body.lang-de .en-only { display: none; }
+  body.lang-en .de-only { display: none; }
+</style>
+</head>
+<body class="lang-de">
+
+<header>
+  <div class="inner">
+    <h1>TUBAF Overlay-Studie</h1>
+    <nav>
+      <a href="https://florian2501.github.io/OverlayAppForms/datenschutzerklaerung.html" class="de-only">Datenschutz</a>
+      <a href="https://florian2501.github.io/OverlayAppForms/datenschutzerklaerung.html" class="en-only">Privacy</a>
+      <a href="https://florian2501.github.io/OverlayAppForms/einverstaendniserklaerung.html" class="de-only">Einverständniserklärung</a>
+      <a href="https://florian2501.github.io/OverlayAppForms/einverstaendniserklaerung.html" class="en-only">Consent Form</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-de" class="active" onclick="setLang('de')">DE</button>
+      <button id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<h1 class="de-only" style="color:var(--uni-blue); font-size:24px;">Tipps für bestimmte Smartphone-Hersteller</h1>
+<h1 class="en-only" style="color:var(--uni-blue); font-size:24px;">Tips for Specific Smartphone Manufacturers</h1>
+
+<p class="intro de-only">
+Einige Smartphone-Hersteller schränken Hintergrund-Apps und Bedienungshilfe-Dienste standardmäßig stark ein.
+Das kann dazu führen, dass Interventionen in unserer App nicht zuverlässig erscheinen. Auf dieser Seite finden
+Sie geräte-spezifische Schritte, mit denen sich das Problem möglicherweise beheben lässt.
+</p>
+<p class="intro en-only">
+Some smartphone manufacturers restrict background apps and accessibility services quite heavily by default.
+This can cause interventions in our app to appear unreliably. This page lists device-specific steps that
+hopefully resolve the issue.
+</p>
+
+<p class="intro de-only">
+Alternativ oder ergänzend können Sie auch die App von "Don'tKillMyApp" installieren, die Ihnen hilft, automatisch mögliche Probleme zu analysieren und zu beheben.
+</p>
+<p class="intro en-only">
+Alternatively, or in addition, you can also install the “Don'tKillMyApp” app, which helps you automatically analyze and fix potential problems.
+</p>
+
+<button id="btn-de-applink" 
+class="de-only" 
+onclick="window.location.href='https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp'"
+style="
+background-color: var(--uni-blue);  
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    ">
+    "Don'tKillMyApp" herunterladen</button>
+<button id="btn-en-applink" 
+class="en-only" 
+onclick="window.location.href='https://play.google.com/store/apps/details?id=com.urbandroid.dontkillmyapp'"
+style="
+background-color: var(--uni-blue);  
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    ">
+    Download "Don'tKillMyApp"</button>
+
+<div class="box-warn">
+  <strong class="de-only">Wichtiger Hinweis:</strong>
+  <strong class="en-only">Important note:</strong>
+  <span class="de-only">Auch wenn Sie alle unten genannten Schritte befolgen, können wir <strong>keine Garantie</strong>
+  geben, dass die App auf Ihrem Gerät zuverlässig funktioniert. Aufgrund herstellerspezifischer
+  Systemeinschränkungen besteht die Möglichkeit, dass technische Fehler auftreten, durch die Sie die Studie
+  nicht vollständig abschließen können. In diesem Fall kontaktieren Sie uns bitte — wir versuchen zu helfen,
+  können den Erfolg jedoch nicht garantieren.</span>
+  <span class="en-only">Even if you follow all the steps below, we <strong>cannot guarantee</strong> that the app
+  will work reliably on your device. Due to manufacturer-specific system restrictions, technical issues may
+  occur that prevent you from completing the study in full. If this happens, please contact us — we will try
+  to help, but cannot guarantee success.</span>
+</div>
+
+<div class="box-info">
+  <strong class="de-only">Allgemeiner Tipp:</strong>
+  <strong class="en-only">General tip:</strong>
+  <span class="de-only">Starten Sie Ihr Gerät nach dem Ändern dieser Einstellungen einmal neu und prüfen Sie
+  danach, ob alle 5 in der App angefragten Berechtigungen weiterhin erteilt sind. Falls die Menübezeichnungen
+  auf Ihrem Gerät leicht abweichen, hat sich Ihr Hersteller möglicherweise für eine andere Formulierung
+  entschieden — die Funktion befindet sich meist trotzdem im gleichen Einstellungsbereich. Nutzen Sie auch die Suchleiste in den Einstellungen, um die richtige Stelle zuverlässig und schneller zu finden.</span>
+  <span class="en-only">After changing these settings, restart your device once and then check that all 5
+  permissions requested by the app are still granted. If the menu labels on your device differ slightly, your
+  manufacturer may simply use different wording — the setting is usually still in the same general area. You can also use the search bar in the settings to find the right section more quickly and reliably.</span>
+</div>
+
+<h2 class="de-only">Xiaomi, Redmi, Poco (MIUI / HyperOS)</h2>
+<h2 class="en-only">Xiaomi, Redmi, Poco (MIUI / HyperOS)</h2>
+<ul class="de-only">
+  <li><strong>App in „Letzte Apps“ anpinnen:</strong> Appverlauf/zuletzt verwendete Apps öffnen, App nach unten ziehen bzw. Schloss-Symbol antippen</li>
+  <li><strong>Autostart erlauben:</strong> Einstellungen → Apps → Berechtigungen → Autostart → App aktivieren</li>
+  <li><strong>Akku-Einschränkung aufheben:</strong> Einstellungen → Akku → App-Akku-Sparfunktion → App auswählen → „Keine Einschränkungen“</li>
+  <li><strong>Ultra-Batteriesparmodus vermeiden:</strong> während der Studienzeit nicht aktivieren</li>
+  <li><strong>MIUI-Optimierung deaktivieren:</strong> Einstellungen → Über das Telefon → 7× auf „MIUI-Version“ tippen (Entwickleroptionen aktivieren) → Entwickleroptionen öffnen → „MIUI-Optimierung“ ausschalten → Gerät neu starten</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Pin the app in recent apps:</strong> open the recent apps tray, drag the app down or tap the lock icon</li>
+  <li><strong>Allow autostart:</strong> Settings → Apps → Permissions → Autostart → enable for the app</li>
+  <li><strong>Remove battery restrictions:</strong> Settings → Battery → App battery saver → select the app → "No restrictions"</li>
+  <li><strong>Avoid Ultra battery saver mode</strong> during the study period</li>
+  <li><strong>Disable MIUI optimization:</strong> Settings → About phone → tap "MIUI version" 7× (enables developer options) → open Developer options → turn off "MIUI optimization" → restart the device</li>
+</ul>
+
+<h2 class="de-only">Huawei (EMUI / HarmonyOS)</h2>
+<h2 class="en-only">Huawei (EMUI / HarmonyOS)</h2>
+<ul class="de-only">
+  <li><strong>App-Start manuell verwalten:</strong> Einstellungen → Apps → App-Start → App auswählen → manuell verwalten → „Automatisch starten“, „Sekundär starten“ und „Im Hintergrund ausführen“ aktivieren</li>
+  <li><strong>Akku-Optimierung deaktivieren:</strong> Einstellungen → Akku → App-Start-Verwaltung bzw. App-Akkunutzung → App auswählen → nicht optimieren</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Manage app launch manually:</strong> Settings → Apps → App launch → select the app → manage manually → enable "Auto-launch", "Secondary launch" and "Run in background"</li>
+  <li><strong>Disable battery optimization:</strong> Settings → Battery → App launch/App power usage → select the app → don't optimize</li>
+</ul>
+
+<h2 class="de-only">Oppo / Realme (ColorOS)</h2>
+<h2 class="en-only">Oppo / Realme (ColorOS)</h2>
+<ul class="de-only">
+  <li><strong>Autostart erlauben:</strong> Einstellungen → App-Verwaltung → App-Liste → App auswählen → Autostart aktivieren</li>
+  <li><strong>Akku-Einschränkung aufheben:</strong> Einstellungen → Akku → App-Energiesparfunktion → App auswählen → „Kein Limit“ / „Nicht optimieren“</li>
+  <li><strong>App im Task-Switcher sperren</strong> (nach oben wischen, Schloss-Symbol antippen)</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Allow autostart:</strong> Settings → App management → App list → select the app → enable autostart</li>
+  <li><strong>Remove battery restrictions:</strong> Settings → Battery → App battery management → select the app → "Allow background activity" / "Don't optimize"</li>
+  <li><strong>Lock the app in the task switcher</strong> (swipe up, tap the lock icon)</li>
+</ul>
+
+<h2 class="de-only">Vivo / iQOO (FuntouchOS / OriginOS)</h2>
+<h2 class="en-only">Vivo / iQOO (FuntouchOS / OriginOS)</h2>
+<ul class="de-only">
+  <li><strong>i-Manager öffnen:</strong> App-Manager → Autostart-Verwaltung → App aktivieren</li>
+  <li><strong>Hintergrund-App-Verwaltung erlauben:</strong> Einstellungen → Akku → Hintergrund-App-Verwaltung → App auf „Zulassen“ setzen</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Open i-Manager:</strong> App manager → Autostart manager → enable the app</li>
+  <li><strong>Allow background app management:</strong> Settings → Battery → Background app management → set the app to "Allow"</li>
+</ul>
+
+<h2 class="de-only">OnePlus (OxygenOS)</h2>
+<h2 class="en-only">OnePlus (OxygenOS)</h2>
+<ul class="de-only">
+  <li><strong>Akku-Optimierung deaktivieren:</strong> Einstellungen → Akku → Akku-Optimierung → App auswählen → „Nicht optimieren“</li>
+  <li><strong>Erweiterte/Tiefe Optimierung ausschalten:</strong> Einstellungen → Akku → Erweiterte Optimierung → App von der Liste ausschließen</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Disable battery optimization:</strong> Settings → Battery → Battery optimization → select the app → "Don't optimize"</li>
+  <li><strong>Turn off advanced/deep optimization</strong> for the app: Settings → Battery → Advanced optimization → exclude the app</li>
+</ul>
+
+<h2 class="de-only">Samsung (One UI)</h2>
+<h2 class="en-only">Samsung (One UI)</h2>
+<ul class="de-only">
+  <li><strong>App von „Schlafenden Apps“ ausschließen:</strong> Einstellungen → Akku → Hintergrundnutzungslimits → Schlafende Apps → App entfernen, falls dort gelistet</li>
+  <li><strong>Akku-Optimierung deaktivieren:</strong> Einstellungen → Apps → App auswählen → Akku → „Nicht optimiert“</li>
+</ul>
+<ul class="en-only">
+  <li><strong>Exclude the app from "Sleeping apps":</strong> Settings → Battery → Background usage limits → Sleeping apps → remove the app if listed there</li>
+  <li><strong>Disable battery optimization:</strong> Settings → Apps → select the app → Battery → "Not optimized"</li>
+</ul>
+
+
+
+<h2 class="de-only">Quellen & weiterführende Hilfe</h2>
+<h2 class="en-only">Sources & Further Help</h2>
+<div class="credit-box">
+  <p class="de-only">
+  Die oben genannten, geräte-spezifischen Tipps orientieren sich an den Anleitungen von
+  <a href="https://appblock.app/specific-phone-brands/" target="_blank" rel="noopener">AppBlock</a> und
+  <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener">Don't Kill My App</a> — beide Seiten
+  sammeln aktuelle, herstellerspezifische Workarounds für genau dieses Problem und werden regelmäßig
+  aktualisiert. Vielen Dank an beide Projekte für die frei verfügbaren Informationen.
+  </p>
+  <p class="de-only">
+  Für ausführlichere Anleitungen oder falls die hier beschriebenen Schritte auf Ihrem Gerät nicht exakt passen (z. B. wegen einer neueren oder
+  älteren Firmware-Version), lohnt sich ein Blick direkt auf
+  <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener">dontkillmyapp.com</a> oder <a href="https://appblock.app/specific-phone-brands/" target="_blank" rel="noopener">appblock.app</a> für Ihr konkretes
+  Modell, oder eine kurze Websuche nach „[Ihr Handymodell] + Hintergrund-Apps zulassen“ bzw.
+  „[Ihr Handymodell] + Bedienungshilfe funktioniert nicht“.
+  </p>
+  <p class="en-only">
+  The device-specific tips above are based on the guides from
+  <a href="https://appblock.app/specific-phone-brands/" target="_blank" rel="noopener">AppBlock</a> and
+  <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener">Don't Kill My App</a> — both sites
+  collect up-to-date, manufacturer-specific workarounds for exactly this problem and are updated regularly.
+  Many thanks to both projects for making this information freely available.
+  </p>
+  <p class="en-only">
+  For more detailed instructions or if the steps described here don't exactly match your device (e.g. due to a newer or older firmware
+  version), it's worth checking
+  <a href="https://dontkillmyapp.com/" target="_blank" rel="noopener">dontkillmyapp.com</a> or <a href="https://appblock.app/specific-phone-brands/" target="_blank" rel="noopener">appblock.app</a> directly for your
+  specific model, or doing a quick web search for "[your phone model] + allow background apps" or
+  "[your phone model] + accessibility service not working".
+  </p>
+</div>
+
+<p class="de-only" style="margin-top:28px;">
+Bei weiteren Fragen oder anhaltenden Problemen erreichen Sie uns unter:
+<a href="mailto:florian-eberhard.schierz@student.tu-freiberg.de">florian-eberhard.schierz@student.tu-freiberg.de</a>.
+</p>
+<p class="en-only" style="margin-top:28px;">
+If you have further questions or ongoing issues, you can reach us at:
+<a href="mailto:florian-eberhard.schierz@student.tu-freiberg.de">florian-eberhard.schierz@student.tu-freiberg.de</a>.
+</p>
+
+</main>
+
+<footer>
+  <p class="de-only">Diese Seite ergänzt die <a href="https://florian2501.github.io/OverlayAppForms/datenschutzerklaerung.html">Datenschutzerklärung</a> und die <a href="https://florian2501.github.io/OverlayAppForms/einverstaendniserklaerung.html">Einverständniserklärung</a> der TUBAF Overlay-Studie.</p>
+  <p class="en-only">This page complements the <a href="https://florian2501.github.io/OverlayAppForms/datenschutzerklaerung.html">Privacy Policy</a> and the <a href="https://florian2501.github.io/OverlayAppForms/einverstaendniserklaerung.html">Consent Form</a> of the TUBAF Overlay Study.</p>
+  <p class="de-only">Stand: 15.07.2026</p>
+  <p class="en-only">Last updated: 15.07.2026</p>
+</footer>
+
+<script>
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.documentElement.lang = lang;
+}
+</script>
+
+</body>
+</html>
